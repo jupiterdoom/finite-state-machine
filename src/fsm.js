@@ -4,8 +4,6 @@ class FSM {
 
     #events;
 
-    #state;
-
     #step;
 
     #history;
@@ -35,7 +33,6 @@ class FSM {
             if (config.initial && this.isValidState(config.initial)) {
 
                 this.#initial = config.initial;
-                this.#state = config.initial;
             } else {
                 throw new Error('no initial state');
             }
@@ -92,10 +89,7 @@ class FSM {
      * Resets FSM state to initial.
      */
     reset() {
-        this.#state = this.#initial;
         this.#step = 0;
-        this.#history.state = this.#initial;
-        this.#history.step = 0;
     }
 
     /**
